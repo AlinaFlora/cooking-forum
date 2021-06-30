@@ -1,0 +1,18 @@
+{
+  "posts": [
+    { "id": "1", "title": "How to eat healthy?", "authorFirstName": "Ricardo" , "authorLastName" :  "Feliz" ,  "authorId" :  "3" ,  "createdAt":  "", "category":  "", "likesCount": 0, "content":  "content"},
+    { "id": "2", "title": "10 the most popular diet", "authorFirstName": "Kate" , "authorLastName" :  "Clark", "authorId" :  "1" , "createdAt":  "", "category":  "", "likesCount": 0, "content":  "content"},
+    { "id": "3", "title": "How to choose tea?", "authorFirstName": "Ricardo" , "authorLastName" :  "Feliz", "authorId" :  "3" , "createdAt":  "", "category":  "", "likesCount": 0, "content":  "content"},
+    { "id": "4", "title": "Is the healthy food can be bad for your body?", "authorFirstName": "Ann" , "authorLastName" :  "Margam", "authorId" :  "2" , "createdAt":  "", "category":  "", "likesCount": 0, "content":  "content" }
+  ],
+  "comments": [
+    { "id": "1", "body": "some comment", "postId": 1,  "authorId" :  "1" , "authorFirstName": "Kate" , "authorLastName" :  "Clark" },
+    { "id": "2", "body": "some another comment", "postId": 1, "authorId" :  "4" ,  "authorFirstName": "Nick" , "authorLastName" :  "Mortiz" }
+  ],
+  "users": [
+    {  "id": "1",  "firstName": "Kate" , "lastName" :  "Clark" },
+    {  "id":"2",  "firstName": "Ann" , "lastName" :  "Margam" },
+    {  "id": "3",  "firstName": "Ricardo" , "lastName" :  "Feliz" },
+    {  "id": "4",  "firstName": "Nick" , "lastName" :  "Mortiz" }
+    ]
+}
