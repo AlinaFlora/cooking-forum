@@ -6,8 +6,8 @@ export const validEmail = new RegExp(
 )
 
 export interface CurrentUser {
-  createdAt?: string
-  authorId?: string,
+  createdAt: string
+  authorId: string,
   authorFirstName: string
   authorLastName: string
 }
@@ -21,10 +21,29 @@ export interface PostItem {
   authorId: string,
   authorFirstName: string
   authorLastName: string
-  likesCount?: number
+  likesCount: number
+}
+
+export interface RecipeItem {
+  id: string
+  title: string
+  createdAt: string
+  //todo separate interface for recipes content
+  content: string
+  category: string
+  authorId: string,
+  authorFirstName: string
+  authorLastName: string
+}
+
+export interface  TopicCategory {
+  title: string,
+  id?: string
 }
 
 export interface SearchPostsPayload {
+}
+export interface SearchRecipesPayload {
 }
 
 export interface AddNewPostsPayload {

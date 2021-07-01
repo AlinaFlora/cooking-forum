@@ -73,6 +73,31 @@ export const useFormStyles = makeStyles({
     padding: '16px 27px',
     fontSize: 18,
   },
+  formSelect: {
+    width: '100%',
+  },
+  formTextArea: {
+    padding: '16px 17px',
+    fontSize: 16,
+    width: '100%',
+    borderColor: colors.decoration.darkGrey,
+    '&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active': {
+      boxShadow: '0 0 0 30px white inset',
+    },
+    borderRadius: 15,
+    border: '1px solid transparent',
+    transition: 'border-color .3s',
+    fontWeight: 600,
+    letterSpacing: 1,
+    '&:focus': {
+      outline: 'none',
+    },
+    '&::placeholder': {
+      fontWeight: 400,
+      color: colors.font.black,
+      opacity: 0.6,
+    },
+  },
   formButton: {
     marginLeft: '15px',
     padding: '9.5px 30px',
