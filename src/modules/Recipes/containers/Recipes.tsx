@@ -12,6 +12,8 @@ import RecipesItemComponent from "../components/RecipesItemComponent/RecipesItem
 import backgroundImg from "../../../shared/assets/images/header-background.jpg"
 import { Container, Main, Wrapper } from '../../../shared/styles/Page.style'
 import { MainContentWrapper } from "./Recipes.style";
+import Typography from "@material-ui/core/Typography";
+import CardContent from "@material-ui/core/CardContent";
 
 const Recipes: React.FC = () => {
   const location = useLocation()
@@ -36,6 +38,16 @@ const Recipes: React.FC = () => {
     }, [location, searchString]
   )
 
+  const searchInfoDisplay = () => {
+    if (searchString){
+      return (
+        <Typography variant="body2"
+                    component="p">
+         Searching results for: {searchString}
+        </Typography>
+      )
+    }
+  }
   const recipesItemDisplay = () => {
     if (isDataLoading) {
       return <Loader/>
@@ -52,7 +64,11 @@ const Recipes: React.FC = () => {
         )
       }
       else return (
-          <p>Unfortunately there is no recipes for your search</p>)
+          <Typography variant="body2"
+                      component="p">
+              Unfortunately there is no recipes for your search
+          </Typography>
+      )
     }
     return (<NoResults/>)
   }
@@ -69,6 +85,7 @@ const Recipes: React.FC = () => {
             secondTitle={'Recipes'}
           />
           <MainContentWrapper>
+          {searchInfoDisplay()}
           {recipesItemDisplay()}
           </MainContentWrapper>
         </Main>
