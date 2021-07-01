@@ -1,7 +1,7 @@
 import { makeStyles, styled } from "@material-ui/core";
 import { colors } from "../../../../config";
 
-export const Container = styled('div')({
+export const ItemWrapper = styled('div')({
   padding: '20 30px',
   '@media (min-width:1741px)': {
     padding: '0 10vw',

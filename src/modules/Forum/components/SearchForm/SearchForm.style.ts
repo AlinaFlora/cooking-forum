@@ -18,6 +18,7 @@ export const Container = styled('div')({
 export const StyledFormInput = styled(FormInput)({
   padding: '16px 17px',
   fontSize: 16,
+  borderColor: colors.decoration.darkGrey,
   '&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active': {
     boxShadow: '0 0 0 30px white inset',
   },

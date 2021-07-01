@@ -10,7 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { RecipesItemProps } from "./RecipesItemComponent.utils";
-import { Container, useRecipesItemStyles } from "./RecipesItemComponent.style";
+import { ItemWrapper, useRecipesItemStyles } from "./RecipesItemComponent.style";
 
 
 const RecipesItemComponent: React.FC<RecipesItemProps> = ({
@@ -33,7 +33,7 @@ const RecipesItemComponent: React.FC<RecipesItemProps> = ({
 
 
   return (
-    <Container >
+    <ItemWrapper >
       <Card className={classes.root}>
         <CardHeader
           className={classes.cardHeader}
@@ -67,7 +67,7 @@ const RecipesItemComponent: React.FC<RecipesItemProps> = ({
         </Collapse>
       </Card>
 
-    </Container>
+    </ItemWrapper>
   )
 }
 
