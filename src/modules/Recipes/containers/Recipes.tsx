@@ -11,6 +11,7 @@ import NoResults from "../../../shared/components/NoResults/NoResults";
 import RecipesItemComponent from "../components/RecipesItemComponent/RecipesItemComponent"
 import backgroundImg from "../../../shared/assets/images/header-background.jpg"
 import { Container, Main, Wrapper } from '../../../shared/styles/Page.style'
+import { MainContentWrapper } from "./Recipes.style";
 
 const Recipes: React.FC = () => {
   const location = useLocation()
@@ -67,7 +68,9 @@ const Recipes: React.FC = () => {
             mainTitle={'Cooking'}
             secondTitle={'Recipes'}
           />
+          <MainContentWrapper>
           {recipesItemDisplay()}
+          </MainContentWrapper>
         </Main>
       </Wrapper>
     </Container>
