@@ -1,12 +1,14 @@
 import { Field, Form, Formik, FormikErrors } from "formik";
+import React from "react"
 import { Grid } from "@material-ui/core";
-import { AddCurrentUserFormFormValues } from "./AddCurrentUserSection.utils";
+import { AddCurrentUserFormFormValues, AddCurrentUserSectionProps } from "./AddCurrentUserSection.utils";
 import { CurrentUser } from "../../../../shared/types";
 import { nanoid } from "@reduxjs/toolkit";
 import { removeWhitespaces } from "../../../../shared/utils/helpers";
 import { FormLabel, useFormStyles } from "../../../../shared/styles/FormElements.style";
 import { ErrorMessage, StyledFormButton } from "../SearchForm/SearchForm.style";
 import { Container, StyledFormInputVisible, useAddUserFormStyles } from "./AddCurrentUserSection.style";
+
 
 const validate = ({ authorFirstName, authorLastName  }: AddCurrentUserFormFormValues) => {
   const errors: FormikErrors<AddCurrentUserFormFormValues> = {}
@@ -19,7 +21,9 @@ const validate = ({ authorFirstName, authorLastName  }: AddCurrentUserFormFormVa
 }
 
 
-const AddCurrentUserSection: React.FC = () => {
+const AddCurrentUserSection: React.FC<AddCurrentUserSectionProps> = ({
+                                                              setIsCurrentUserExist
+                                                            }) => {
 
   const classes = useFormStyles()
   const classes2 = useAddUserFormStyles()
@@ -36,6 +40,7 @@ const  saveCurrentUser =(values: AddCurrentUserFormFormValues)=> {
     authorId: nanoid(8)
   }
    localStorage.setItem('currentUser', JSON.stringify(currentUser))
+  setIsCurrentUserExist(true)
   }
 
   const initialValues: AddCurrentUserFormFormValues = {
@@ -82,7 +87,7 @@ const  saveCurrentUser =(values: AddCurrentUserFormFormValues)=> {
                   htmlFor="authorLastName"
                   className={classes2.searchFormLabel}
                 >
-                  First Name
+                  Last Name
                 </FormLabel>
                 <Field
                   id="authorLastName"

@@ -5,7 +5,7 @@ const colors = {
       },
   imgGradient:
     'linear-gradient(90deg, rgba(27, 50, 78, 0.7) 49.71%, rgba(196, 216, 224, 0.44) 100%)',
-  
+
   border: {
     primary: '#ffffff',
     root: '#1E65BA',
