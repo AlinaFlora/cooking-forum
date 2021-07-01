@@ -1,15 +1,16 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { doSomethingAsync } from './actions'
+import { fetchRecipes } from './actions'
+import { RecipeItem } from "../../../shared/types";
 
 interface State {
-  something: string
+  recipes: RecipeItem[]
   isDataLoading: boolean
   isDataFetched: boolean
   error?: string | null
 }
 
 const initialState: State = {
-  something: '',
+  recipes: [],
   isDataLoading: false,
   isDataFetched: false,
   error: null,
@@ -17,18 +18,18 @@ const initialState: State = {
 
 export default createReducer(initialState, builder =>
   builder
-    .addCase(doSomethingAsync.pending, state => {
+    .addCase(fetchRecipes.pending, state => {
       state.isDataLoading = true
       state.isDataFetched = false
       state.error = null
     })
-    .addCase(doSomethingAsync.fulfilled, (state, action) => {
-      state.something = action.payload
+    .addCase(fetchRecipes.fulfilled, (state, action) => {
+      state.recipes = action.payload
       state.isDataLoading = false
       state.isDataFetched = true
       state.error = null
     })
-    .addCase(doSomethingAsync.rejected, (state, action) => {
+    .addCase(fetchRecipes.rejected, (state, action) => {
       state.isDataLoading = false
       state.isDataFetched = false
       state.error = action.error.message

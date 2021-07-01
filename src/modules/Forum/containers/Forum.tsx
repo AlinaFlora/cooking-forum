@@ -8,9 +8,13 @@ import SearchForm from "../components/SearchForm/SearchForm"
 import ForumSection from "../components/ForumSection/ForumSection";
 import backgroundImg from '../../../shared/assets/images/header-background.jpg'
 import { Container, InformationSection, Main, Wrapper } from '../../../shared/styles/Page.style'
+import AddTopicForm from "../components/AddTopicForm/AddTopicForm";
+import React from "react";
 
 
 const Forum: React.FC = () => {
+  const [isSubmitted, setIsSubmitted] = React.useState(false);
+
   const currentUser = useSelector(getCurrentUser)
 
   return (
@@ -25,7 +29,8 @@ const Forum: React.FC = () => {
           />
 
           <SearchForm/>
-          {!currentUser && (
+          {//todo refresh if add user - hide it and show form
+            !currentUser && (
             <InformationSection>
               <Typography
               >
@@ -34,7 +39,18 @@ const Forum: React.FC = () => {
             <AddCurrentUserSection/>
             </InformationSection>
             )}
-          <ForumSection/>
+
+            {//todo add some acordion to display form and info aboout current user + reset user functionality
+              currentUser && (
+            <InformationSection>
+              <Typography
+              >
+              To add new topic please fill and submit the form
+              </Typography>
+            <AddTopicForm setIsSubmitted={setIsSubmitted}/>
+            </InformationSection>
+            )}
+          <ForumSection isSubmitted={isSubmitted}/>
         </Main>
       </Wrapper>
     </Container>

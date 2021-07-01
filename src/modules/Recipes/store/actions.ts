@@ -1,10 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { MODULE_NAME } from '../strings'
+import { SearchRecipesPayload } from "../../../shared/types";
+import RecipesApi from "./services";
 
-export const doSomethingAsync = createAsyncThunk(
-  `${MODULE_NAME}/doSomethingAsync`,
-  () =>
-    new Promise(resolve =>
-      setTimeout(() => resolve('Done'), 1000),
-    ) as Promise<string>,
+const api = new RecipesApi()
+
+
+export const fetchRecipes = createAsyncThunk(
+  `${MODULE_NAME}/searchRecipes`,
+  async (payload: SearchRecipesPayload) => api.searchRecipes(payload)
 )

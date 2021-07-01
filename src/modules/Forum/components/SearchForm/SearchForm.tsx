@@ -10,6 +10,7 @@ import {
   StyledFormButton,
   ErrorMessage,
 } from './SearchForm.style'
+import { removeWhitespaces } from "../../../../shared/utils/helpers";
 
 
 const validate = ({ searchString  }: SearchFormFormValues) => {
@@ -34,13 +35,6 @@ const SearchForm: React.FC<SearchFormPropTypes> = ({ }) => {
     searchString: searchValues.searchString ? searchValues.searchString : '',
     fieldsAreEmpty: 'Please enter the search keywords'
   }
-
-  const removeWhitespaces = (searchStr: string | string[]) => {
-    if (searchStr && typeof searchStr === 'string') {
-      return searchStr.trim()
-    }
-  }
-
 
   return (
     <Container className={classes.container}>
@@ -74,7 +68,7 @@ const SearchForm: React.FC<SearchFormPropTypes> = ({ }) => {
                     htmlFor="searchString"
                     className={classes.searchFormLabel}
                   >
-                   Search receipts
+                   Search recipes
                   </FormLabel>
                   <Field
                     id="searchString"

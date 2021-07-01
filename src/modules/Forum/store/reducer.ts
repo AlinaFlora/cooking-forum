@@ -1,9 +1,10 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { fetchPosts } from './actions'
-import { PostItem } from "../../../shared/types";
+import { addNewPost, fetchCategories, fetchPosts } from './actions'
+import { PostItem, TopicCategory } from "../../../shared/types";
 
 interface State {
   posts: PostItem[]
+  categories: TopicCategory[]
   isDataLoading: boolean
   isDataFetched: boolean
   error?: string | null
@@ -11,6 +12,7 @@ interface State {
 
 const initialState: State = {
   posts: [],
+  categories: [],
   isDataLoading: false,
   isDataFetched: false,
   error: null,
@@ -33,5 +35,38 @@ export default createReducer(initialState, builder =>
       state.isDataLoading = false
       state.isDataFetched = false
       state.error = action.error.message
-    }),
+    })
+
+  .addCase(fetchCategories.pending, state => {
+    state.isDataLoading = true
+    state.isDataFetched = false
+    state.error = null
+  })
+  .addCase(fetchCategories.fulfilled, (state, action) => {
+    state.categories = action.payload
+    state.isDataLoading = false
+    state.isDataFetched = true
+    state.error = null
+  })
+  .addCase(fetchCategories.rejected, (state, action) => {
+    state.isDataLoading = false
+    state.isDataFetched = false
+    state.error = action.error.message
+  })
+
+    .addCase(addNewPost.pending, state => {
+    state.isDataLoading = true
+    state.isDataFetched = false
+    state.error = null
+  })
+  .addCase(addNewPost.fulfilled, (state, action) => {
+    state.isDataLoading = false
+    state.isDataFetched = true
+    state.error = null
+  })
+  .addCase(addNewPost.rejected, (state, action) => {
+    state.isDataLoading = false
+    state.isDataFetched = false
+    state.error = action.error.message
+  })
 )

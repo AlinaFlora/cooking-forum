@@ -10,6 +10,11 @@ export const fetchPosts = createAsyncThunk(
   async (payload: SearchPostsPayload) => api.searchPosts(payload)
 )
 
+export const fetchCategories = createAsyncThunk(
+  `${MODULE_NAME}/searchCategories`,
+  async () => api.searchCategories()
+)
+
 export const addNewPost = createAsyncThunk(
   `${MODULE_NAME}/addPost`,
   async (payload: AddNewPostsPayload) => api.addPost(payload)

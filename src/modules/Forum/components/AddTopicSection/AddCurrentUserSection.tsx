@@ -1,11 +1,12 @@
 import { Field, Form, Formik, FormikErrors } from "formik";
 import { Grid } from "@material-ui/core";
 import { AddCurrentUserFormFormValues } from "./AddCurrentUserSection.utils";
+import { CurrentUser } from "../../../../shared/types";
+import { nanoid } from "@reduxjs/toolkit";
+import { removeWhitespaces } from "../../../../shared/utils/helpers";
 import { FormLabel, useFormStyles } from "../../../../shared/styles/FormElements.style";
 import { ErrorMessage, StyledFormButton } from "../SearchForm/SearchForm.style";
 import { Container, StyledFormInputVisible, useAddUserFormStyles } from "./AddCurrentUserSection.style";
-import { CurrentUser } from "../../../../shared/types";
-import { nanoid } from "@reduxjs/toolkit";
 
 const validate = ({ authorFirstName, authorLastName  }: AddCurrentUserFormFormValues) => {
   const errors: FormikErrors<AddCurrentUserFormFormValues> = {}
@@ -41,12 +42,6 @@ const  saveCurrentUser =(values: AddCurrentUserFormFormValues)=> {
     authorFirstName: '',
     authorLastName: '',
     fieldsAreEmpty: 'Please enter the name and surname to be able submit the form and add new topic.'
-  }
-
-  const removeWhitespaces = (searchStr: string | string[]) => {
-    if (searchStr && typeof searchStr === 'string') {
-      return searchStr.trim()
-    }
   }
 
   return (

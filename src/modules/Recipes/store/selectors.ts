@@ -1,8 +1,6 @@
 import { RootState } from "../../../app/App";
 
-//todo own
-
-export const getSomething = (state: RootState) => state.Recipes.something
+export const getRecipes = (state: RootState) => state.Recipes.recipes
 
 export const getLoading = (state: RootState) => state.Recipes.isDataLoading
 

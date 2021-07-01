@@ -60,12 +60,6 @@ const PostComponent: React.FC<PostComponentProps> = ({
           onClick={handleTitleClick}
           subheader={post.createdAt}
         />
-        {/*<CardMedia*/}
-        {/*  className={classes.media}*/}
-        {/*  //todo images*/}
-        {/*  image="/static/images/cards/paella.jpg"*/}
-        {/*  title={post.title}*/}
-        {/*/>*/}
 
         <CardActions disableSpacing>
           <IconButton>
