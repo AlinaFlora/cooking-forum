@@ -8,7 +8,6 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { RecipesItemProps } from "./RecipesItemComponent.utils";
 import { Container, useRecipesItemStyles } from "./RecipesItemComponent.style";
@@ -32,17 +31,6 @@ const RecipesItemComponent: React.FC<RecipesItemProps> = ({
     setExpanded(!expanded);
   };
 
-  const handleLikeClick = () => {
-    //todo post.likes ++ and save
-    //use some user id ro know is current user already liked this //maybe maki it only for logged in users
-    //make color red if liked
-  };
-
-  const handleTitleClick = () => {
-    //todo  display comments and form to add new comment
-  };
-
-  //todo add diplay and add new comments, add style, add like functionality
 
   return (
     <Container >
@@ -55,14 +43,10 @@ const RecipesItemComponent: React.FC<RecipesItemProps> = ({
             </Avatar>
           }
           title={recipesItem.title}
-          onClick={handleTitleClick}
           subheader={recipesItem.createdAt}
         />
 
         <CardActions disableSpacing>
-          <IconButton>
-            <FavoriteIcon  onClick={handleLikeClick} />
-          </IconButton>
           <IconButton
             className={clsx(classes.expand, {
               [classes.expandOpen]: expanded,
