@@ -13,7 +13,6 @@ import backgroundImg from "../../../shared/assets/images/header-background.jpg"
 import { Container, Main, Wrapper } from '../../../shared/styles/Page.style'
 import { MainContentWrapper } from "./Recipes.style";
 import Typography from "@material-ui/core/Typography";
-import CardContent from "@material-ui/core/CardContent";
 
 const Recipes: React.FC = () => {
   const location = useLocation()

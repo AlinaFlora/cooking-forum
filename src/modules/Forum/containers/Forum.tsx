@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Typography } from '@material-ui/core'
 import { getCurrentUser } from "../store/selectors";
-import AddCurrentUserSection from "../components/AddTopicSection/AddCurrentUserSection";
+import AddCurrentUserSection from "../components/AddCurrentUserSection/AddCurrentUserSection";
 import Navigation from '../../../shared/components/Navigation/Navigation'
 import Header from "../../../shared/components/Header/Header"
 import SearchForm from "../components/SearchForm/SearchForm"
@@ -14,8 +14,12 @@ import React from "react";
 
 const Forum: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = React.useState(false);
+  const [isCurrentUserExist, setIsCurrentUserExist] = React.useState(false);
 
   const currentUser = useSelector(getCurrentUser)
+  // if (currentUser){
+  //   setIsCurrentUserExist(true)
+  // }
 
   return (
     <Container>
@@ -29,19 +33,19 @@ const Forum: React.FC = () => {
           />
 
           <SearchForm/>
-          {//todo refresh if add user - hide it and show form
-            !currentUser && (
+          {!(isCurrentUserExist || currentUser) && (
             <InformationSection>
               <Typography
               >
               To be able to add new topic please add your first and last name
               </Typography>
-            <AddCurrentUserSection/>
+            <AddCurrentUserSection setIsCurrentUserExist={setIsCurrentUserExist}/>
             </InformationSection>
             )}
 
-            {//todo add some acordion to display form and info aboout current user + reset user functionality
-              currentUser && (
+            {
+              //todo add some acordion to display form and info aboout current user + reset user functionality
+              (isCurrentUserExist || currentUser) && (
             <InformationSection>
               <Typography
               >

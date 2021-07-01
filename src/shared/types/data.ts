@@ -28,7 +28,6 @@ export interface RecipeItem {
   id: string
   title: string
   createdAt: string
-  //todo separate interface for recipes content
   content: string
   category: string
   authorId: string,

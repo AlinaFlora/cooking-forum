@@ -3,3 +3,7 @@ export interface  AddCurrentUserFormFormValues  {
   authorLastName: string,
   fieldsAreEmpty: string
 }
+
+export interface AddCurrentUserSectionProps {
+  setIsCurrentUserExist:  (arg: boolean) => void
+}
