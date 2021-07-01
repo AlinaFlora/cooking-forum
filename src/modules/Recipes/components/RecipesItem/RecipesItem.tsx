@@ -1,8 +1,8 @@
-import React from "react";
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
+import React from "react";
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
@@ -10,20 +10,20 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { PostComponentProps } from "./PostComponent.utils";
-import { Container, usePostComponentStyles } from "./PostComponent.style";
+import { RecipesItemProps } from "./RecipesItem.utils";
+import { Container, useRecipesItemStyles } from "./RecipesItem.style";
 
 
-const PostComponent: React.FC<PostComponentProps> = ({
-                                                       post
+const PostComponent: React.FC<RecipesItemProps> = ({
+                                                       recipesItem
                                                      }) => {
-  const classes = usePostComponentStyles()
+  const classes = useRecipesItemStyles()
   const [expanded, setExpanded] = React.useState(false);
 
   const displayAvatar = () => {
     let avatarText = ''
-    if (post.authorFirstName || post.authorLastName){
-      avatarText  = (post.authorFirstName? post.authorFirstName.charAt(0): '') + (post.authorLastName? post.authorLastName.charAt(0): '')
+    if (recipesItem.authorFirstName || recipesItem.authorLastName){
+      avatarText  = (recipesItem.authorFirstName? recipesItem.authorFirstName.charAt(0): '') + (recipesItem.authorLastName? recipesItem.authorLastName.charAt(0): '')
     }
     return avatarText
   };
@@ -54,9 +54,9 @@ const PostComponent: React.FC<PostComponentProps> = ({
               {displayAvatar()}
             </Avatar>
           }
-          title={post.title}
+          title={recipesItem.title}
           onClick={handleTitleClick}
-          subheader={post.createdAt}
+          subheader={recipesItem.createdAt}
         />
 
         <CardActions disableSpacing>
@@ -75,10 +75,10 @@ const PostComponent: React.FC<PostComponentProps> = ({
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-              <Typography variant="body2"
-                          component="p">
-                {post.content}
-              </Typography>
+            <Typography variant="body2"
+                        component="p">
+              {recipesItem.content}
+            </Typography>
           </CardContent>
         </Collapse>
       </Card>
