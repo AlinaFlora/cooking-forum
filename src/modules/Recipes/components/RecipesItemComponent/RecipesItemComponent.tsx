@@ -10,11 +10,11 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { RecipesItemProps } from "./RecipesItem.utils";
-import { Container, useRecipesItemStyles } from "./RecipesItem.style";
+import { RecipesItemProps } from "./RecipesItemComponent.utils";
+import { Container, useRecipesItemStyles } from "./RecipesItemComponent.style";
 
 
-const PostComponent: React.FC<RecipesItemProps> = ({
+const RecipesItemComponent: React.FC<RecipesItemProps> = ({
                                                        recipesItem
                                                      }) => {
   const classes = useRecipesItemStyles()
@@ -87,4 +87,4 @@ const PostComponent: React.FC<RecipesItemProps> = ({
   )
 }
 
-export default PostComponent
+export default RecipesItemComponent
