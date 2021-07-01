@@ -43,94 +43,6 @@
       "category": "",
       "likesCount": 0,
       "content": "content"
-    },
-    {
-      "createdAt": "Thu Jul 01 2021",
-      "id": "BH-05Hmy",
-      "authorFirstName": "",
-      "authorLastName": "",
-      "authorId": "",
-      "content": "aaaffffr",
-      "title": "dfdfdffrfr",
-      "category": "",
-      "likesCount": 0
-    },
-    {
-      "createdAt": "Thu Jul 01 2021",
-      "id": "ojEWI1Pq",
-      "authorFirstName": "Alina",
-      "authorLastName": "Flora",
-      "authorId": "DxOhK0Gv",
-      "content": "rrr",
-      "title": "test",
-      "category": "",
-      "likesCount": 0
-    },
-    {
-      "createdAt": "Thu Jul 01 2021",
-      "id": "x7aARQVA",
-      "authorFirstName": "Alina",
-      "authorLastName": "Flora",
-      "authorId": "DxOhK0Gv",
-      "content": "rrr",
-      "title": "test",
-      "category": "",
-      "likesCount": 0
-    },
-    {
-      "createdAt": "Thu Jul 01 2021",
-      "id": "lCP5SjN4",
-      "authorFirstName": "Alina",
-      "authorLastName": "Flora",
-      "authorId": "DxOhK0Gv",
-      "content": "22",
-      "title": "test2",
-      "category": "",
-      "likesCount": 0
-    },
-    {
-      "createdAt": "Thu Jul 01 2021",
-      "id": "zYc2Ynjd",
-      "authorFirstName": "Alina",
-      "authorLastName": "Flora",
-      "authorId": "DxOhK0Gv",
-      "content": "22",
-      "title": "test2",
-      "category": "Sweet",
-      "likesCount": 0
-    },
-    {
-      "createdAt": "Thu Jul 01 2021",
-      "id": "CkkwNSGO",
-      "authorFirstName": "Alina",
-      "authorLastName": "Flora",
-      "authorId": "DxOhK0Gv",
-      "content": "test",
-      "title": "Here",
-      "category": "Drinks",
-      "likesCount": 0
-    },
-    {
-      "createdAt": "Thu Jul 01 2021",
-      "id": "R_j83MQD",
-      "authorFirstName": "Alina",
-      "authorLastName": "Flora",
-      "authorId": "DxOhK0Gv",
-      "content": "hhh",
-      "title": "hjh",
-      "category": "Drinks",
-      "likesCount": 0
-    },
-    {
-      "createdAt": "Thu Jul 01 2021",
-      "id": "hvSm4pLh",
-      "authorFirstName": "Alina",
-      "authorLastName": "Flora",
-      "authorId": "DxOhK0Gv",
-      "content": "nnn",
-      "title": "cadre1",
-      "category": "Sweet",
-      "likesCount": 0
     }
   ],
   "comments": [
@@ -138,6 +50,7 @@
       "id": "1",
       "body": "some comment",
       "postId": 1,
+      "createdAt": "",
       "authorId": "1",
       "authorFirstName": "Kate",
       "authorLastName": "Clark"
@@ -146,6 +59,7 @@
       "id": "2",
       "body": "some another comment",
       "postId": 1,
+      "createdAt": "",
       "authorId": "4",
       "authorFirstName": "Nick",
       "authorLastName": "Mortiz"
@@ -155,22 +69,26 @@
     {
       "id": "1",
       "firstName": "Kate",
-      "lastName": "Clark"
+      "lastName": "Clark",
+      "createdAt": ""
     },
     {
       "id": "2",
       "firstName": "Ann",
-      "lastName": "Margam"
+      "lastName": "Margam",
+      "createdAt": ""
     },
     {
       "id": "3",
       "firstName": "Ricardo",
-      "lastName": "Feliz"
+      "lastName": "Feliz",
+      "createdAt": ""
     },
     {
       "id": "4",
       "firstName": "Nick",
-      "lastName": "Mortiz"
+      "lastName": "Mortiz",
+      "createdAt": ""
     }
   ],
   "categories": [
@@ -189,6 +107,30 @@
     {
       "id": "4",
       "title": "Other"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "1",
+      "title": "Cookies",
+      "createdAt": "",
+      "content": "content",
+      "category": "Sweet",
+      "categoryId": "2",
+      "authorId": "",
+      "authorFirstName": "",
+      "authorLastName": ""
+    },
+    {
+      "id": "2",
+      "title": "Ice Latte",
+      "createdAt": "",
+      "content": "content",
+      "category": "Drinks",
+      "categoryId": "3",
+      "authorId": "",
+      "authorFirstName": "",
+      "authorLastName": ""
     }
   ]
 }

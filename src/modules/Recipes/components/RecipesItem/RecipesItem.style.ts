@@ -8,7 +8,7 @@ export const Container = styled('div')({
   },
 })
 
-export const usePostComponentStyles = makeStyles((theme) => ({
+export const useRecipesItemStyles = makeStyles((theme) => ({
   root: {
     width: '100%'
   },
