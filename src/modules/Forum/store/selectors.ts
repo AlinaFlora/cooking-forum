@@ -3,6 +3,8 @@ import { RootState } from "../../../app/App";
 export const getPosts = (state: RootState) => state.forum.posts
 export const getCategories = (state: RootState) => state.forum.categories
 
+export const getComments = (state: RootState) => state.forum.comments
+
 export const getForumDataLoading = (state: RootState) => state.forum.isDataLoading
 export const getForumIsDataFetched = (state: RootState) => state.forum.isDataFetched
 

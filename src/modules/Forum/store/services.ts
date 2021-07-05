@@ -1,12 +1,31 @@
 import { nanoid } from "@reduxjs/toolkit";
 import { Api } from "../../../shared/services";
 import { config } from "../../../config";
-import { AddNewPostsPayload, SearchPostsPayload } from "../../../shared/types";
+import {
+  AddNewCommentPayload,
+  AddNewPostsPayload,
+  SearchCommentsPayload,
+  SearchPostsPayload
+} from "../../../shared/types";
 
   export default class ForumApi extends Api {
 
   public async searchPosts(payload: SearchPostsPayload) {
     const API = `${config.API_URL}/posts`
+
+    const requestConfig = {
+      params: {
+        ...payload,
+      },
+    }
+
+    return this.api.get(API, requestConfig).then(response => {
+      return response.data
+    })
+  }
+
+  public async searchComments(payload: SearchCommentsPayload) {
+    const API = `${config.API_URL}/comments`
 
     const requestConfig = {
       params: {
@@ -43,6 +62,18 @@ import { AddNewPostsPayload, SearchPostsPayload } from "../../../shared/types";
 
         ...payload,
 
+      },
+    }
+    return this.api.post(API, requestConfig.params).then(response => {
+      return response.data
+    })
+  }
+
+  public async addComment(payload: AddNewCommentPayload) {
+     const API = `${config.API_URL}/comments`
+    const requestConfig = {
+      params: {
+        ...payload,
       },
     }
     return this.api.post(API, requestConfig.params).then(response => {

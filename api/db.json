@@ -43,6 +43,17 @@
       "category": "",
       "likesCount": 0,
       "content": "content"
+    },
+    {
+      "createdAt": "Mon Jul 05 2021",
+      "id": "_JuUSxkQ",
+      "authorFirstName": "Alina",
+      "authorLastName": "Flora",
+      "authorId": "DxOhK0Gv",
+      "content": "Start new topic",
+      "title": "New topic",
+      "category": "Other",
+      "likesCount": 0
     }
   ],
   "comments": [
@@ -50,7 +61,7 @@
       "id": "1",
       "body": "some comment",
       "postId": 1,
-      "createdAt": "",
+      "createdAt": "Mon Jul 05 2021",
       "authorId": "1",
       "authorFirstName": "Kate",
       "authorLastName": "Clark"
@@ -59,10 +70,19 @@
       "id": "2",
       "body": "some another comment",
       "postId": 1,
-      "createdAt": "",
+      "createdAt": "Mon Jul 05 2021",
       "authorId": "4",
       "authorFirstName": "Nick",
       "authorLastName": "Mortiz"
+    },
+    {
+      "authorFirstName": "Alina",
+      "authorLastName": "Flora",
+      "authorId": "DxOhK0Gv",
+      "body": "the third comment",
+      "createdAt": "Mon Jul 05 2021",
+      "id": "lJnbSELL",
+      "postId": "1"
     }
   ],
   "users": [

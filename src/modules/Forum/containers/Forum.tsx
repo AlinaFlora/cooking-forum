@@ -1,25 +1,21 @@
 import { useSelector } from "react-redux";
+import React from "react";
 import { Typography } from '@material-ui/core'
 import { getCurrentUser } from "../store/selectors";
 import AddCurrentUserSection from "../components/AddCurrentUserSection/AddCurrentUserSection";
 import Navigation from '../../../shared/components/Navigation/Navigation'
 import Header from "../../../shared/components/Header/Header"
 import SearchForm from "../components/SearchForm/SearchForm"
+import AddTopicForm from "../components/AddTopicForm/AddTopicForm";
 import ForumSection from "../components/ForumSection/ForumSection";
 import backgroundImg from '../../../shared/assets/images/header-background.jpg'
 import { Container, InformationSection, Main, Wrapper } from '../../../shared/styles/Page.style'
-import AddTopicForm from "../components/AddTopicForm/AddTopicForm";
-import React from "react";
-
 
 const Forum: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = React.useState(false);
   const [isCurrentUserExist, setIsCurrentUserExist] = React.useState(false);
 
   const currentUser = useSelector(getCurrentUser)
-  // if (currentUser){
-  //   setIsCurrentUserExist(true)
-  // }
 
   return (
     <Container>
