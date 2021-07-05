@@ -1,9 +1,10 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { addNewPost, fetchCategories, fetchPosts } from './actions'
-import { PostItem, TopicCategory } from "../../../shared/types";
+import { addNewPost, fetchCategories, fetchComments, fetchPosts } from './actions'
+import { CommentItem, PostItem, TopicCategory } from "../../../shared/types";
 
 interface State {
   posts: PostItem[]
+  comments: CommentItem[]
   categories: TopicCategory[]
   isDataLoading: boolean
   isDataFetched: boolean
@@ -12,6 +13,7 @@ interface State {
 
 const initialState: State = {
   posts: [],
+  comments: [],
   categories: [],
   isDataLoading: false,
   isDataFetched: false,
@@ -69,4 +71,21 @@ export default createReducer(initialState, builder =>
     state.isDataFetched = false
     state.error = action.error.message
   })
+
+    .addCase(fetchComments.pending, state => {
+      state.isDataLoading = true
+      state.isDataFetched = false
+      state.error = null
+    })
+    .addCase(fetchComments.fulfilled, (state, action) => {
+      state.comments = action.payload
+      state.isDataLoading = false
+      state.isDataFetched = true
+      state.error = null
+    })
+    .addCase(fetchComments.rejected, (state, action) => {
+      state.isDataLoading = false
+      state.isDataFetched = false
+      state.error = action.error.message
+    })
 )

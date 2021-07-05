@@ -26,8 +26,9 @@ const validate = ({ searchString  }: SearchFormFormValues) => {
 
 const SearchForm: React.FC<SearchFormPropTypes> = ({ }) => {
   const history = useHistory()
-  const classes = useFormStyles()
   const location = useLocation()
+
+  const classes = useFormStyles()
 
   const searchValues = queryString.parse(location.search)
 

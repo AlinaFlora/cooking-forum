@@ -24,6 +24,16 @@ export interface PostItem {
   likesCount: number
 }
 
+export interface CommentItem {
+  id: string
+  postId: string
+  createdAt: string
+  body: string
+  authorId: string,
+  authorFirstName: string
+  authorLastName: string
+}
+
 export interface RecipeItem {
   id: string
   title: string
@@ -42,6 +52,11 @@ export interface  TopicCategory {
 
 export interface SearchPostsPayload {
 }
+
+export interface SearchCommentsPayload {
+  postId: string
+}
+
 export interface SearchRecipesPayload {
 }
 
@@ -49,6 +64,16 @@ export interface AddNewPostsPayload {
   title: string
   content: string
   category?: string
+  authorId?: string,
+  authorFirstName: string
+  authorLastName: string
+}
+
+export interface AddNewCommentPayload {
+  id: string
+  postId: string
+  createdAt: string
+  body: string
   authorId?: string,
   authorFirstName: string
   authorLastName: string

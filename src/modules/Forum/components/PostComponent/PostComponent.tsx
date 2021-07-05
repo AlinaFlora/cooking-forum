@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from 'clsx';
+import { useHistory } from "react-router";
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
@@ -13,11 +14,12 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { PostComponentProps } from "./PostComponent.utils";
 import { Container, usePostComponentStyles } from "./PostComponent.style";
 
-
 const PostComponent: React.FC<PostComponentProps> = ({
                                                        post
                                                      }) => {
+  const history = useHistory()
   const classes = usePostComponentStyles()
+
   const [expanded, setExpanded] = React.useState(false);
 
   const displayAvatar = () => {
@@ -32,14 +34,18 @@ const PostComponent: React.FC<PostComponentProps> = ({
     setExpanded(!expanded);
   };
 
-  const handleLikeClick = () => {
-    //todo post.likes ++ and save
-    //use some user id ro know is current user already liked this //maybe maki it only for logged in users
-    //make color red if liked
-  };
 
   const handleTitleClick = () => {
-    //todo  display comments and form to add new comment
+    let str = '?' + (post.id ? `topicId=${post.id}&` : '')
+    if (str.endsWith('&')) {
+      str = str.slice(0, -1)
+    }
+
+    const location = {
+      pathname: `/topic`,
+      search: str
+    }
+    history.push(location)
   };
 
   //todo add diplay and add new comments, add style, add like functionality
@@ -58,11 +64,7 @@ const PostComponent: React.FC<PostComponentProps> = ({
           onClick={handleTitleClick}
           subheader={post.createdAt}
         />
-
         <CardActions disableSpacing>
-          <IconButton>
-            <FavoriteIcon  onClick={handleLikeClick} />
-          </IconButton>
           <IconButton
             className={clsx(classes.expand, {
               [classes.expandOpen]: expanded,

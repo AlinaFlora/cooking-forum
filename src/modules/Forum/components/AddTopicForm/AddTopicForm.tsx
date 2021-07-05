@@ -63,7 +63,6 @@ const validate = ({ title, content, category  }: AddTopicFormFormValues) => {
         id: id,
         likesCount: 0
       }
-      console.log("newPost", newPost)
 
       dispatch(addNewPost(newPost))
       setAddedContent('')
@@ -182,6 +181,7 @@ const validate = ({ title, content, category  }: AddTopicFormFormValues) => {
                     type="submit"
                     onClick={ () => saveNewPost()}
                     className={classes2.formButton}
+                    disabled={!addedContent || !addedTitle || !selectedCategory}
                   >
                     Submit
                   </StyledFormButton>

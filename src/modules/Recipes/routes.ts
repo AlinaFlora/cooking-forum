@@ -8,7 +8,7 @@ export const BASE_PATH = '/'
 const routes = addBasePath<ModuleRoute>(BASE_PATH, [
   {
     path: '/recipes',
-    label: 'navigation.news',
+    label: 'News',
     title: 'Recipes',
     icon: HomeIcon,
     exact: true,
