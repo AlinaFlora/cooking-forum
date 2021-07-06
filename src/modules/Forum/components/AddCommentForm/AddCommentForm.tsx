@@ -26,9 +26,9 @@ const validate = ({ comment }: AddCommentFormFormValues) => {
 }
 
 const AddCommentForm: React.FC<AddCommentFormProps> = ({
-  topicId,
-                                                     setIsSubmitted
-                                                   }) => {
+                                                         topicId,
+                                                         setIsSubmitted
+                                                       }) => {
 
   const dispatch = useDispatch()
 
@@ -44,18 +44,18 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({
     }, []
   )
 
-  const currentUser = currentUserStr? JSON.parse(currentUserStr) : {}
+  const currentUser = currentUserStr ? JSON.parse(currentUserStr) : {}
 
-  const saveNewComment = ()=> {
-    const date =  new Date()
+  const saveNewComment = () => {
+    const date = new Date()
     const id = nanoid(8)
 
-    if(currentUser && typeof currentUser === 'object'){
-      const newComment : CommentItem = {
-        authorFirstName: currentUser['authorFirstName']? currentUser['authorFirstName']: '',
-        authorLastName: currentUser['authorLastName']? currentUser['authorLastName'] : '',
-        authorId: currentUser['authorId']? currentUser['authorId'] : '',
-        body: addedComment? addedComment : '',
+    if (currentUser && typeof currentUser === 'object') {
+      const newComment: CommentItem = {
+        authorFirstName: currentUser['authorFirstName'] ? currentUser['authorFirstName'] : '',
+        authorLastName: currentUser['authorLastName'] ? currentUser['authorLastName'] : '',
+        authorId: currentUser['authorId'] ? currentUser['authorId'] : '',
+        body: addedComment ? addedComment : '',
         createdAt: date.toDateString(),
         id: id,
         postId: topicId,
@@ -82,7 +82,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({
         validate={validate}
       >
         {props => {
-          const { values, errors, submitForm} = props
+          const { values, errors, submitForm } = props
 
           return (
             <Form>
@@ -102,7 +102,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({
                     type="text"
                     as={StyledFormInputVisible}
                     placeholder={''}
-                    value={addedComment? addedComment : ''}
+                    value={addedComment ? addedComment : ''}
                     onChange={(e: ChangeEvent<{ value: unknown }>) => {
                       setAddedComment(e.target.value as string)
                     }}
@@ -116,7 +116,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({
                 <Grid className={classes.searchFormWrapper}>
                   <StyledFormButton
                     type="submit"
-                    onClick={ () => saveNewComment()}
+                    onClick={() => saveNewComment()}
                     className={classes2.formButton}
                     disabled={!addedComment}
                   >

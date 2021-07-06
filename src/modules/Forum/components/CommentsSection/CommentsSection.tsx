@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
+import { Typography } from "@material-ui/core";
 import { fetchComments } from "../../store/actions";
 import { getComments, getForumDataLoading, getForumIsDataFetched } from "../../store/selectors";
 import NoResults from "../../../../shared/components/NoResults/NoResults";
@@ -50,6 +51,9 @@ const CommentsSection: React.FC<CommentsSectionProps> = ({
 
   return (
     <Container>
+      <Typography>
+       Comments ({comments.length}):
+      </Typography>
       {displayComments()}
     </Container>
   )
