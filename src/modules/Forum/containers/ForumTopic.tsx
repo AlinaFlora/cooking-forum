@@ -11,6 +11,7 @@ import AddCommentForm from "../components/AddCommentForm/AddCommentForm";
 import CommentsSection from "../components/CommentsSection/CommentsSection";
 import backgroundImg from '../../../shared/assets/images/header-background.jpg'
 import { Container, InformationSection, Main, Wrapper } from '../../../shared/styles/Page.style'
+import { useForumTopicStyles } from "./ForumTopic.style";
 
 
 const ForumTopic: React.FC = () => {
@@ -22,6 +23,7 @@ const ForumTopic: React.FC = () => {
 
   const location = useLocation()
   const dispatch = useDispatch()
+  const classes = useForumTopicStyles()
 
   const params = new URLSearchParams(location.search);
   const topicId = params.get('topicId')
@@ -38,6 +40,7 @@ const ForumTopic: React.FC = () => {
     }, [isSubmitted]
   )
 
+const authorInfo = currentTopic[0]?.authorFirstName + ' ' + currentTopic[0]?.authorLastName
 
   return (
     <Container>
@@ -61,25 +64,28 @@ const ForumTopic: React.FC = () => {
           )}
 
           {currentTopic[0] &&
-            //todo style
           (
               <InformationSection>
                   <Typography
+                    className={classes.topicTitle}
                   >
                     {currentTopic[0].title}
                   </Typography>
-                <Typography>
-                  {currentTopic[0].authorFirstName}{' '}{currentTopic[0].authorLastName}{' '}{currentTopic[0].createdAt}
+                <Typography className={classes.topicAuthor}
+                >
+                  Author: {authorInfo? authorInfo : 'No info'}
                 </Typography>
-                <Typography>
+                  <Typography className={classes.topicDate}
+                  >
+                  Publication date: {currentTopic[0].createdAt ? currentTopic[0].createdAt : 'No info'}
+                </Typography>
+                <Typography className={classes.topicContent}>
                   {currentTopic[0].content}
                 </Typography>
               </InformationSection>
           )}
 
           {
-            //todo add some acordion to display form and info aboout current user + reset user functionality
-
             (topicId && (isCurrentUserExist || currentUser) )&& (
                 <AddCommentForm topicId={topicId} setIsSubmitted={setIsSubmitted}/>
             )}

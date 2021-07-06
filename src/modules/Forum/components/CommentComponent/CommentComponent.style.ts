@@ -16,16 +16,14 @@ export const useCommentComponentStyles = makeStyles((theme) => ({
     backgroundColor: colors.decoration.green,
   },
   cardHeader: {
-    '&:hover': {
-      cursor: 'pointer',
-    },
     '&> div.MuiCardHeader-content > span':{
       fontSize: 18,
       '&.MuiCardHeader-title':{
         fontSize: 12,
       },
       '&:hover': {
-        textDecoration: 'none'
+        textDecoration: 'none',
+        cursor: 'default'
       },
     }
   },

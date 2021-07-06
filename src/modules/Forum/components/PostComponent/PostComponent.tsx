@@ -48,8 +48,6 @@ const PostComponent: React.FC<PostComponentProps> = ({
     history.push(location)
   };
 
-  //todo add diplay and add new comments, add style, add like functionality
-
   return (
     <Container >
       <Card className={classes.root}>
