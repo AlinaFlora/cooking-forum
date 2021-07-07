@@ -20,7 +20,7 @@ const Forum: React.FC = () => {
   return (
     <Container>
       <Wrapper>
-        <Navigation />
+        <Navigation/>
         <Main>
           <Header
             image={backgroundImg}
@@ -33,22 +33,21 @@ const Forum: React.FC = () => {
             <InformationSection>
               <Typography
               >
-              To be able to add new topic please add your first and last name
+                To be able to add new topic please add your first and last name
               </Typography>
-            <AddCurrentUserSection setIsCurrentUserExist={setIsCurrentUserExist}/>
+              <AddCurrentUserSection setIsCurrentUserExist={setIsCurrentUserExist}/>
             </InformationSection>
-            )}
+          )}
 
-            {
-              //todo add some acordion to display form and info aboout current user + reset user functionality
-              (isCurrentUserExist || currentUser) && (
-            <InformationSection>
-              <Typography
-              >
-              To add new topic please fill and submit the form
-              </Typography>
-            <AddTopicForm setIsSubmitted={setIsSubmitted}/>
-            </InformationSection>
+          {
+            (isCurrentUserExist || currentUser) && (
+              <InformationSection>
+                <Typography
+                >
+                  To add new topic please fill and submit the form
+                </Typography>
+                <AddTopicForm setIsSubmitted={setIsSubmitted}/>
+              </InformationSection>
             )}
           <ForumSection isSubmitted={isSubmitted}/>
         </Main>
