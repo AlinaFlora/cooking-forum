@@ -10,5 +10,3 @@ export const getForumDataLoading = (state: RootState) => state.forum.isDataLoadi
 export const getForumIsDataFetched = (state: RootState) => state.forum.isDataFetched
 
 export const getCurrentUser = () => localStorage.getItem('currentUser')
-
-export const getError = (state: RootState) => state.forum.error

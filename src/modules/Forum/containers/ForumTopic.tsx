@@ -2,13 +2,15 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import { useLocation } from "react-router";
 import { Typography } from '@material-ui/core'
-import { getCurrentPost, getCurrentUser } from "../store/selectors";
+import { getCurrentPost, getCurrentUser, getForumDataLoading, getForumIsDataFetched } from "../store/selectors";
 import Header from "../../../shared/components/Header/Header";
 import AddCurrentUserSection from "../components/AddCurrentUserSection/AddCurrentUserSection";
 import Navigation from '../../../shared/components/Navigation/Navigation'
 import { fetchPostById } from "../store/actions";
 import AddCommentForm from "../components/AddCommentForm/AddCommentForm";
 import CommentsSection from "../components/CommentsSection/CommentsSection";
+import Loader from "../../../shared/components/Loader/Loader";
+import NoResults from "../../../shared/components/NoResults/NoResults";
 import backgroundImg from '../../../shared/assets/images/header-background.jpg'
 import { Container, InformationSection, Main, Wrapper } from '../../../shared/styles/Page.style'
 import { useForumTopicStyles } from "./ForumTopic.style";
@@ -20,6 +22,8 @@ const ForumTopic: React.FC = () => {
 
   const currentUser = useSelector(getCurrentUser)
   const currentTopic = useSelector(getCurrentPost)
+  const isDataLoading = useSelector(getForumDataLoading)
+  const isDataFetched = useSelector(getForumIsDataFetched)
 
   const location = useLocation()
   const dispatch = useDispatch()
@@ -40,6 +44,41 @@ const ForumTopic: React.FC = () => {
   )
 
 const authorInfo = currentTopic[0]?.authorFirstName + ' ' + currentTopic[0]?.authorLastName
+
+  const displayDetails = () => {
+    if (isDataLoading) {
+      return <Loader/>
+    }
+    if (isDataFetched) {
+      return (
+        <>
+        {currentTopic[0] &&
+            (
+              <InformationSection>
+                <Typography
+                  className={classes.topicTitle}
+                >
+                  {currentTopic[0].title}
+                </Typography>
+                <Typography className={classes.topicAuthor}
+                >
+                  Author: {authorInfo? authorInfo : 'No info'}
+                </Typography>
+                <Typography className={classes.topicDate}
+                >
+                  Publication date: {currentTopic[0].createdAt ? currentTopic[0].createdAt : 'No info'}
+                </Typography>
+                <Typography className={classes.topicContent}>
+                  {currentTopic[0].content}
+                </Typography>
+              </InformationSection>
+            )}
+            </>
+      )
+
+    }
+    return (<NoResults/>)
+  }
 
   return (
     <Container>
@@ -62,27 +101,7 @@ const authorInfo = currentTopic[0]?.authorFirstName + ' ' + currentTopic[0]?.aut
             </InformationSection>
           )}
 
-          {currentTopic[0] &&
-          (
-              <InformationSection>
-                  <Typography
-                    className={classes.topicTitle}
-                  >
-                    {currentTopic[0].title}
-                  </Typography>
-                <Typography className={classes.topicAuthor}
-                >
-                  Author: {authorInfo? authorInfo : 'No info'}
-                </Typography>
-                  <Typography className={classes.topicDate}
-                  >
-                  Publication date: {currentTopic[0].createdAt ? currentTopic[0].createdAt : 'No info'}
-                </Typography>
-                <Typography className={classes.topicContent}>
-                  {currentTopic[0].content}
-                </Typography>
-              </InformationSection>
-          )}
+          {displayDetails()}
 
           {
             (topicId && (isCurrentUserExist || currentUser) )&& (
