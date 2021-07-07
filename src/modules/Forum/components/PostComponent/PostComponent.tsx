@@ -9,10 +9,10 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { PostComponentProps } from "./PostComponent.utils";
 import { Container, usePostComponentStyles } from "./PostComponent.style";
+import { formatedDate } from "../../../../shared/utils/helpers";
 
 const PostComponent: React.FC<PostComponentProps> = ({
                                                        post
@@ -60,7 +60,7 @@ const PostComponent: React.FC<PostComponentProps> = ({
           }
           title={post.title}
           onClick={handleTitleClick}
-          subheader={post.createdAt}
+          subheader={formatedDate(post.createdAt)}
         />
         <CardActions disableSpacing>
           <IconButton

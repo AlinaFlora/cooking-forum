@@ -31,7 +31,7 @@ const validate = ({ title, content, category  }: AddTopicFormFormValues) => {
   const classes = useFormStyles()
   const classes2 = useAddTopicFormStyles()
 
-  const [selectedCategory, setCategory] = React.useState('');
+  const [selectedCategory, setCategory] = React.useState('Other');
   const [addedTitle, setAddedTitle] = React.useState('');
   const [addedContent, setAddedContent] = React.useState('');
 

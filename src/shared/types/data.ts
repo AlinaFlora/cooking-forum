@@ -53,11 +53,16 @@ export interface  TopicCategory {
 export interface SearchPostsPayload {
 }
 
+export interface SearchPostByIdPayload {
+  id: string
+}
+
 export interface SearchCommentsPayload {
   postId: string
 }
 
 export interface SearchRecipesPayload {
+  title?: string
 }
 
 export interface AddNewPostsPayload {

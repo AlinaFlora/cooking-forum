@@ -2,6 +2,7 @@ import React from "react";
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import Avatar from '@material-ui/core/Avatar';
+import { formatedDate } from "../../../../shared/utils/helpers";
 import { CommentComponentProps } from "./CommentComponent.utils";
 import { Container, useCommentComponentStyles } from "./CommentComponent.style";
 
@@ -18,7 +19,7 @@ const CommentComponent: React.FC<CommentComponentProps> = ({
     return avatarText
   };
 
-  const authorInfo = comment.authorFirstName+' '+comment.authorLastName+' '+comment.createdAt
+  const authorInfo = comment.authorFirstName + ' ' + comment.authorLastName + ' ' + formatedDate(comment.createdAt)
 
   return (
     <Container >

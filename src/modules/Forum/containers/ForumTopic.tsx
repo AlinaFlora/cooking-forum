@@ -2,11 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import { useLocation } from "react-router";
 import { Typography } from '@material-ui/core'
-import { getCurrentUser, getPosts } from "../store/selectors";
+import { getCurrentPost, getCurrentUser } from "../store/selectors";
 import Header from "../../../shared/components/Header/Header";
 import AddCurrentUserSection from "../components/AddCurrentUserSection/AddCurrentUserSection";
 import Navigation from '../../../shared/components/Navigation/Navigation'
-import { fetchPosts } from "../store/actions";
+import { fetchPostById } from "../store/actions";
 import AddCommentForm from "../components/AddCommentForm/AddCommentForm";
 import CommentsSection from "../components/CommentsSection/CommentsSection";
 import backgroundImg from '../../../shared/assets/images/header-background.jpg'
@@ -19,7 +19,7 @@ const ForumTopic: React.FC = () => {
   const [isCurrentUserExist, setIsCurrentUserExist] = React.useState(false);
 
   const currentUser = useSelector(getCurrentUser)
-  const currentTopic = useSelector(getPosts)
+  const currentTopic = useSelector(getCurrentPost)
 
   const location = useLocation()
   const dispatch = useDispatch()
@@ -34,9 +34,8 @@ const ForumTopic: React.FC = () => {
         const payload = {
           id: topicId
         }
-        dispatch(fetchPosts(payload))
+        dispatch(fetchPostById(payload))
       }
-
     }, [isSubmitted]
   )
 

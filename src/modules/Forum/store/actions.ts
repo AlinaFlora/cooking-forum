@@ -5,7 +5,7 @@ import {
   SearchPostsPayload,
   AddNewPostsPayload,
   SearchCommentsPayload,
-  AddNewCommentPayload
+  AddNewCommentPayload, SearchPostByIdPayload
 } from "../../../shared/types";
 
 const api = new ForumApi()
@@ -13,6 +13,11 @@ const api = new ForumApi()
 export const fetchPosts = createAsyncThunk(
   `${MODULE_NAME}/searchPosts`,
   async (payload: SearchPostsPayload) => api.searchPosts(payload)
+)
+
+export const fetchPostById = createAsyncThunk(
+  `${MODULE_NAME}/searchPostById`,
+  async (payload: SearchPostByIdPayload) => api.searchPostById(payload)
 )
 
 export const fetchCategories = createAsyncThunk(

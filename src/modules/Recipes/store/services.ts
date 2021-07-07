@@ -5,18 +5,15 @@ import { SearchRecipesPayload } from "../../../shared/types";
 export default class RecipesApi extends Api {
 
   public async searchRecipes(payload: SearchRecipesPayload) {
-    const API = `${config.API_URL}/recipes`
+    let API = `${config.API_URL}/recipes`
 
-    const requestConfig = {
-      params: {
-        ...payload,
-      },
+    if (payload.title){
+      API = `${config.API_URL}/recipes/${payload.title}`
     }
 
-    return this.api.get(API, requestConfig).then(response => {
+    return this.api.get(API).then(response => {
       return response.data
     })
   }
-
 
 }

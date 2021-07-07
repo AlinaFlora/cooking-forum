@@ -1,6 +1,7 @@
 import { RootState } from "../../../app/App";
 
 export const getPosts = (state: RootState) => state.forum.posts
+export const getCurrentPost = (state: RootState) => state.forum.selectedPost
 export const getCategories = (state: RootState) => state.forum.categories
 
 export const getComments = (state: RootState) => state.forum.comments

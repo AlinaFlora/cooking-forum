@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { RecipesItemProps } from "./RecipesItemComponent.utils";
 import { ItemWrapper, useRecipesItemStyles } from "./RecipesItemComponent.style";
+import { formatedDate } from "../../../../shared/utils/helpers";
 
 
 const RecipesItemComponent: React.FC<RecipesItemProps> = ({
@@ -43,7 +44,7 @@ const RecipesItemComponent: React.FC<RecipesItemProps> = ({
             </Avatar>
           }
           title={recipesItem.title}
-          subheader={recipesItem.createdAt}
+          subheader={formatedDate(recipesItem.createdAt)}
         />
 
         <CardActions disableSpacing>
